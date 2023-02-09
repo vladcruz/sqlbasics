@@ -10,7 +10,8 @@ A gestáo de uma Banco de Dados é feita por um **Sistema de Gestão de Bancos d
 
 Bancos de Dados são separados em dois tipos básicos:
 
-- **SQL**: também conhecidos como bancos de dados relacionais, são bancos de dados que são formados por tabelas, que contém linhas e colunas na sua estrutura, algo como o que mostramos abaixo:
+### SQL ### 
+Também conhecidos como bancos de dados relacionais, são bancos de dados que são formados por tabelas, que contém linhas e colunas na sua estrutura, algo como o que mostramos abaixo:
 
 | Coluna 1 | Coluna 2 | Coluna 3 | Coluna 4 |
 | -------- | -------- | -------- | -------- |
@@ -63,7 +64,8 @@ Os principais bancos de dados relacionais no mercado são:
 - PostgresQL
 - Apache Ignite
 
-- **NoSQL**:
+### NoSQL ###
+
 Outro tipo de Bancos de Dados que existe, e são largamente utilizados, são os bancos do tipo **NoSQL** (Not Only SQL), ao contrário dos bancos relacionais, esses bancos de dados não precisam estruturar os dados, uma vez que são altamente flexíveis quanto a sua forma de armazenagem, ou seja, eles não são estruturados. Mas o que isso quer dizer? Muito bem, em bancos relacionais, falamos de tabelas, o que obriga que todos os registros tenham a mesma estrutura ou seja, todos os campos, mesmo que vazios, mas devem possuir, tal como mostrado abaixo:
 
 **Tabela Endereço**
@@ -109,7 +111,7 @@ Note que o endereço de ID 02 não possui o complemento, mesmo assim, o seu regi
 O registro númeto 02, não possui o complemento, e não há problema, pois em bancos NoSQL, sua estrutura é altamente flexível.
 Diferente de bancos de dados realacionais, bancos de dados NoSQL, podem ser de 4 tipos:
 
-- **Chave-Valor**: esse é o tipo de banco de dados mais utilizado no mundo dos NoSQL, pois é extremamente simples de se utilizar e altamente confiável. Basicamente se utiliza uma chave (simples ou complexa) que nos permite buscar mais atributos do registro que queremos, um exemplo pode ser visto abaixo:
+**Chave-Valor**: esse é o tipo de banco de dados mais utilizado no mundo dos NoSQL, pois é extremamente simples de se utilizar e altamente confiável. Basicamente se utiliza uma chave (simples ou complexa) que nos permite buscar mais atributos do registro que queremos, um exemplo pode ser visto abaixo:
 
 ![Exemplo Chave-Valor](https://d1.awsstatic.com/product-marketing/DynamoDB/PartitionKey.8dd0530a7f6d66d101f31de30db515564f4cf28a.png)
 *Créditos: AWS - Definição de Banco de Dados Chave Valor*
@@ -119,11 +121,11 @@ Alguns exemplos de bancos de dados desse tipo são:
 - Redis
 - Aerospike
 
-- **Documentos**:
+**Documentos**:
 
-- **Grafos**:
+**Grafos**:
 
-- **Coluna Larga**:
+**Coluna Larga**:
 
 ## Estrutura da Linguagem SQL ##
 
