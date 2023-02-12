@@ -114,6 +114,7 @@ Diferente de bancos de dados realacionais, bancos de dados NoSQL, podem ser de 4
 **Chave-Valor**: esse é o tipo de banco de dados mais utilizado no mundo dos NoSQL, pois é extremamente simples de se utilizar e altamente confiável. Basicamente se utiliza uma chave (simples ou complexa) que nos permite buscar mais atributos do registro que queremos, um exemplo pode ser visto abaixo:
 
 ![Exemplo Chave-Valor](https://d1.awsstatic.com/product-marketing/DynamoDB/PartitionKey.8dd0530a7f6d66d101f31de30db515564f4cf28a.png)
+
 *Créditos: AWS - Definição de Banco de Dados Chave Valor*
 
 Alguns exemplos de bancos de dados desse tipo são:
@@ -121,12 +122,39 @@ Alguns exemplos de bancos de dados desse tipo são:
 - Redis
 - Aerospike
 
-**Documentos**:
+**Documentos**: esse tipo de banco de dados, armazena informações em documentos, que não são totalmente estruturados, como os bancos relacionais, permitindo assim que cada documento possua uma estrutura única, se necessário.
 
-**Grafos**:
+![Exemplo Documento](https://miro.medium.com/max/552/1*f3R5Tdypfxr_Wy478vfzXA.png)
 
-**Coluna Larga**:
+Alguns exemplos de bancos de dados deste tipo são:
+- MongoDB
+- CouchDB
+- RavenDB
 
+**Grafos**: esse tipo de banco de dados, organiza os dados como nós e as conexões (conexão entre os nós), nos nós temos os dados, que tal como os bancos de dados de Documentos, são semi-estruturados, e as conexões guardam as relações entre os nós. Muito parecido com o que vemos nas redes sociais.
+
+![Exemplo de Grafo](https://upload.wikimedia.org/wikipedia/commons/3/3a/GraphDatabase_PropertyGraph.png)
+
+*Crédito: Wikipedia - Graph Databases*
+
+Alguns exemplos de bancos de dados deste tipo são:
+- Neo4j
+- Apache Age
+- Amazon Neptune
+- Azure CosmosDB
+
+**Coluna Larga**: esse tipo de banco de dados, organiza os dados em tabelas, linhas e colunas, mas não como um banco de dados relacional, cada linha tem sua própria estrutura de colunas.
+
+![Exemplo de Coluna Larga](https://database.guide/wp-content/uploads/2016/06/wide_column_store_database_example_column_family-1.png)
+
+*Crédito: database.guide*
+
+Alguns exemplos de bancos de dados deste tipo são:
+- Google Bigtable
+- Apache Cassandra
+- Apache Hbase
+
+Muito bem, agora que já vimos um pouco sobre os tipos de Bancos de Dados que existem e um pouco de como estes funcionam, podemos avançar no noss tópico.
 ## Estrutura da Linguagem SQL ##
 
 Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
@@ -136,3 +164,4 @@ Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
 - **DDL** (Data Definition Language): define os comandos para manipulação de tabelas, views, índices e atualização (CREATE, ALTER e DROP)
 - **DCL** (Data Control Language): define os comandos de controle de acesso ao banco de dados (GRANT e REVOKE)
 - **DTL** (Data Transaction Language): define os comandos de gestão das transações de bancos de dados (BEGIN, COMMIT e ROLLBACK)
+
