@@ -132,7 +132,7 @@ Alguns exemplos de bancos de dados desse tipo são:
 **Documentos**: esse tipo de banco de dados, armazena informações em documentos, que não são totalmente estruturados, como os bancos relacionais, permitindo assim que cada documento possua uma estrutura única, se necessário.
 
 **Documento 1**
-```
+```json
 {
    "id":"1", 
    "name":"John Smith", 
@@ -142,7 +142,7 @@ Alguns exemplos de bancos de dados desse tipo são:
 ```
 
 **Documento 2**
-```
+```json
 {
    "id":"2", 
    "fullname":"Sarah Jones", 
@@ -152,7 +152,7 @@ Alguns exemplos de bancos de dados desse tipo são:
 ```
 
 **Documento 3**
-```
+```json
 {
    "id":"3", 
    "fullname":
@@ -193,12 +193,118 @@ Alguns exemplos de bancos de dados deste tipo são:
 - Apache Cassandra
 - Apache Hbase
 
-Muito bem, agora que já vimos um pouco sobre os tipos de Bancos de Dados que existem e um pouco de como estes funcionam, podemos avançar no noss tópico.
+Muito bem, agora que já vimos um pouco sobre os tipos de Bancos de Dados que existem e um pouco de como estes funcionam, podemos avançar no nosso tópico.
 ## Estrutura da Linguagem SQL ##
 
 Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
 
-- **DQL** (Data Query Language): define o comando de consulta de dados (SELECT)
+- **DQL** (Data Query Language): define o comando de consulta de dados, a saber, o comando SELECT, que como o próprio nome diz, seleciona os dados nas fontes que queremos, alguns exemplos são:
+
+**1.** Buscar os dados de todas as colunas de uma tabela:
+```sql
+SELECT * FROM tabela; 
+```
+**2.** Buscar todos os dados de apenas uma coluna:
+```sql
+SELECT nome FROM tabela;
+```
+**3.** Buscar todos os dados de mais de uma coluna:
+```sql
+SELECT nome, sobrenome, endereço FROM tabela;
+```
+**4.** Buscar os dados de mais uma coluna sendo que uma das colunas venha ordenada em ascendente
+```sql
+SELECT matricula, nome, sobrenome, endereço FROM tabela ORDER BY matricula ASC;
+```
+**5.** Buscar os dados de mais uma coluna sendo que uma das colunas venha ordenada em descendente
+```sql
+SELECT matricula, nome, sobrenome, endereço FROM tabela ORDER BY matricula DESC;
+```
+**6.** Buscar os dados de uma coluna, porém garantindo que traga apenas valores únicos
+```sql
+SELECT DISTINCT(endereço) FROM tabela;
+```
+**7.** Buscar os dados de várias colunas mas que sejam maiores ou iguais à um determinado valor
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE matricula >= 1000;
+```
+**8.** Buscar os dados de várias colunas mas que sejam menores ou iguais à um determinado valor
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE matricula <= 1000;
+```
+**9.** Buscar os dados de várias colunas mas que sejam exatamente iguais à um determinado valor
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE matricula = 1000;
+```
+**10.** Buscar os dados de várias colunas mas que sejam seu valor esteja entre dois valores
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE matricula BETWEEN 500 AND 1000;
+```
+**11.** Buscar os dados de várias colunas, mas que possuam um valor texto específico
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome = 'Igor';
+```
+**12.** Buscar os dados de várias colunas, mas que contenham valores texto que estão em uma lista
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome IN ('Igor','Eric');
+```
+**13.** Buscar os dados de várias colunas, mas que contenham valores que comecem com um caractere
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome LIKE 'I%';
+```
+**14.** Buscar os dados de várias colunas, mas que contenham valores que não comecem com um caractere
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome NOT LIKE 'I%';
+```
+**15.** Buscar os dados de várias colunas, mas que contenham valores que não comecem com um caractere
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome NOT LIKE 'I%';
+```
+**16.** Buscar os dados de várias colunas, porém filtrando por mais de uma coluna
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE nome LIKE 'I%' AND matricula >= 1000;
+```
+**17.** Buscar os dados de várias colunas, porém filtrando apenas aqueles que possuem o campo desejado vazio
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE sobrenome IS NULL;
+```
+**18.** Buscar os dados de várias colunas, porém filtrando apenas aqueles que possuem o campo desejado não vazio
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE sobrenome IS NOT NULL;
+```
+**19.** Buscar os dados de várias colunas, porém filtrando apenas aqueles que possuem o campo desejado não vazio
+```sql
+SELECT matricula, nome, sobrenome FROM tabela WHERE sobrenome IS NOT NULL;
+```
+**20.** Somar todos os valores de uma coluna
+```sql
+SELECT SUM(salario) FROM tabela;
+```
+**21.** Realizar a média de todos os valores de uma coluna
+```sql
+SELECT AVG(salario) FROM tabela;
+```
+**22.** Achar o maior de todos os valores de uma coluna
+```sql
+SELECT MAX(salario) FROM tabela;
+```
+**23.** Achar o menor de todos os valores de uma coluna
+```sql
+SELECT MIN(salario) FROM tabela;
+```
+**24.** Contar o total de Matrículas que as pessoas tenham o mesmo primeiro nome
+```sql
+SELECT nome, COUNT(matricula) FROM tabela GROUP BY nome;
+```
+**25.** Contar o total de Matrículas que as pessoas tenham o mesmo primeiro nome que seja Igor ou Eric
+```sql
+SELECT nome, COUNT(matricula) FROM tabela WHERE nome IN ('Igor','Eric') GROUP BY nome;
+```
+**26.** Contar o total de Matrículas que as pessoas tenham o mesmo primeiro nome e que seja um total maior que 100
+```sql
+SELECT nome, COUNT(matricula) FROM tabela GROUP BY nome HAVING COUNT(matricula) > 100;
+```
+
 - **DML** (Data Manipulation Language): define os comandos de manipulação do banco de dados (INSERT, UPDATE e DELETE)
 - **DDL** (Data Definition Language): define os comandos para manipulação de tabelas, views, índices e atualização (CREATE, ALTER e DROP)
 - **DCL** (Data Control Language): define os comandos de controle de acesso ao banco de dados (GRANT e REVOKE)
