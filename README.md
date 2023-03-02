@@ -113,7 +113,14 @@ Diferente de bancos de dados realacionais, bancos de dados NoSQL, podem ser de 4
 
 **Chave-Valor**: esse é o tipo de banco de dados mais utilizado no mundo dos NoSQL, pois é extremamente simples de se utilizar e altamente confiável. Basicamente se utiliza uma chave (simples ou complexa) que nos permite buscar mais atributos do registro que queremos, um exemplo pode ser visto abaixo:
 
-![Exemplo Chave-Valor](https://d1.awsstatic.com/product-marketing/DynamoDB/PartitionKey.8dd0530a7f6d66d101f31de30db515564f4cf28a.png)
+| ID Produto | Tipo | Atributo 1 | Atributo 2 | Atributo 3 |
+| ---------- | ---- | ---------- | ---------- | ---------- |
+| 1 | ID Livro | Odisséia | Homnero | 1871 |
+| 2 | ID Album | 6 Partitas | Bach |
+| 2 | ID Album: ID Faixa | Partita No. 1 |
+| 3 | ID Filme | A Criança | Drama, Comédia | Charles Chaplin |
+
+Sendo o **ID Produto** a **Chave de Partição**, o **Tipo** a **Chave de indexação**, e os **Atrbituos 1, 2 e 3** os **Atributos** de cada entrada.
 
 *Créditos: AWS - Definição de Banco de Dados Chave Valor*
 
@@ -124,7 +131,39 @@ Alguns exemplos de bancos de dados desse tipo são:
 
 **Documentos**: esse tipo de banco de dados, armazena informações em documentos, que não são totalmente estruturados, como os bancos relacionais, permitindo assim que cada documento possua uma estrutura única, se necessário.
 
-![Exemplo Documento](https://miro.medium.com/max/552/1*f3R5Tdypfxr_Wy478vfzXA.png)
+**Documento 1**
+```
+{
+   "id":"1", 
+   "name":"John Smith", 
+   "isActive":true, 
+   "dob":"1964-30-08"
+}
+```
+
+**Documento 2**
+```
+{
+   "id":"2", 
+   "fullname":"Sarah Jones", 
+   "isActive":false, 
+   "dob":"2002-02-18"
+}
+```
+
+**Documento 3**
+```
+{
+   "id":"3", 
+   "fullname":
+        {
+            "first":"Adam",
+            "last":"Stark"
+        }, 
+   "isActive":true,
+   "dob":"2015-04-19"
+}
+```
 
 Alguns exemplos de bancos de dados deste tipo são:
 - MongoDB
