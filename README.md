@@ -199,6 +199,15 @@ Muito bem, agora que já vimos um pouco sobre os tipos de Bancos de Dados que ex
 Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
 
 - **DQL** (Data Query Language): define o comando de consulta de dados, a saber, o comando SELECT, que como o próprio nome diz, seleciona os dados nas fontes que queremos, alguns exemplos são:
+- **DML** (Data Manipulation Language): define os comandos de manipulação do banco de dados (INSERT, UPDATE e DELETE)
+- **DDL** (Data Definition Language): define os comandos para manipulação de tabelas, views, índices e atualização (CREATE, ALTER e DROP)
+- **DCL** (Data Control Language): define os comandos de controle de acesso ao banco de dados (GRANT e REVOKE)
+- **DTL** (Data Transaction Language): define os comandos de gestão das transações de bancos de dados (BEGIN, COMMIT e ROLLBACK)
+
+## Exemplos de Códigos: ##
+
+### *SELECT* ###
+---
 
 **1.** Buscar os dados de todas as colunas de uma tabela:
 ```sql
@@ -304,9 +313,15 @@ SELECT nome, COUNT(matricula) FROM tabela WHERE nome IN ('Igor','Eric') GROUP BY
 ```sql
 SELECT nome, COUNT(matricula) FROM tabela GROUP BY nome HAVING COUNT(matricula) > 100;
 ```
-
-- **DML** (Data Manipulation Language): define os comandos de manipulação do banco de dados (INSERT, UPDATE e DELETE)
-- **DDL** (Data Definition Language): define os comandos para manipulação de tabelas, views, índices e atualização (CREATE, ALTER e DROP)
-- **DCL** (Data Control Language): define os comandos de controle de acesso ao banco de dados (GRANT e REVOKE)
-- **DTL** (Data Transaction Language): define os comandos de gestão das transações de bancos de dados (BEGIN, COMMIT e ROLLBACK)
-
+### *INSERT* ###
+---
+### *UPDATE* ###
+---
+### *DELETE* ###
+---
+### *CREATE* ###
+---
+### *ALTER* ###
+---
+### *DROP* ###
+---
