@@ -194,6 +194,82 @@ Alguns exemplos de bancos de dados deste tipo são:
 - Apache Hbase
 
 Muito bem, agora que já vimos um pouco sobre os tipos de Bancos de Dados que existem e um pouco de como estes funcionam, podemos avançar no nosso tópico.
+## Bancos de Dados Relacionais na prática ##
+Muito bem, agora que já falamos dos principais tipos de bancos de dados que temos, vamos focar no que melhor representa o que estamos falando, e alguns de seus princípios básicos, ou seja, falaremos de bancos de dados relacionais.
+
+Como falamos antes, estes bancos de dados são constituídos de tabelas, tal como mostrado abaixo:
+**Tabela Pessoa**
+| ID | Nome | Sobrenome | Idade | Sexo |
+| -- | ---- | --------- | ----- | ---- |
+| 01 | José  | Silva  | 17  | Masculino  |
+| 02 | Maria  | Lins  | 21  | Feminino  |
+| 03 | Roberto  | Losada  | 53  | Masculino  |
+
+**Tabela Endereço**
+| ID | Rua | Número | Complemento | Bairro | Cidade | Estado | CEP |
+| -- | --- | ------ | ----------- | ------ | ------ | ------ | --- |
+| 01 | Rua D  | 01  | Apt. 01  | Vila Prudente | São Paulo | SP | 00000-000 |
+| 02 | Rua A  | 10  | ---  | Vila Andrade | São Paulo | SP | 00000-000 |
+| 03 | Rua X  | 42  | Torre Sul, Apt. 53  | Centro | São Paulo | SP | 00000-000 |
+
+E estas tabelas podem se **relacionar**, tal como mostramos abaixo, que cada endereço, também possui o ID da Pessoa que ali mora.
+
+**Tabela Endereço**
+| ID | Rua | Número | Complemento | Bairro | Cidade | Estado | CEP | ID_Pessoa |
+| -- | --- | ------ | ----------- | ------ | ------ | ------ | --- | --- |
+| 01 | Rua D  | 01  | Apt. 01  | Vila Prudente | São Paulo | SP | 00000-000 | **03** |
+| 02 | Rua A  | 10  | ---  | Vila Andrade | São Paulo | SP | 00000-000 | **02** |
+| 03 | Rua X  | 42  | Torre Sul, Apt. 53  | Centro | São Paulo | SP | 00000-000 | **01** |
+
+Pois bem, o que não falamos ainda, são alguns conceitos que ocorrem dentro de tabelas de bancos de dados relacionais
+
+## Chave primária ##
+Uma chave primária é um conceito básico em bancos de dados relacionais. Ela é composta por uma ou mais colunas em uma tabela que identifica exclusivamente cada registro na tabela. A chave primária é usada para garantir a integridade dos dados e garantir que não haja duplicação de registros.
+
+Cada registro em uma tabela deve ter uma chave primária única e não nula, e os valores da chave primária devem ser diferentes para cada registro. As chaves primárias são usadas como referências para outras tabelas em um banco de dados relacionais e são usadas para garantir a integridade referencial.
+
+Os principais tipos de chave primária são:
+
+**Chave primária simples:** A chave primária simples é composta por uma única coluna em uma tabela. Por exemplo, em uma tabela de pessoas, a chave primária pode ser o cpf da pessoa, tal como mostrado abaixo:
+
+**Tabela Pessoa**
+| CPF | Nome | Sobrenome | Idade | Sexo |
+| --- | ---- | --------- | ----- | ---- |
+| **111.222.333-44** | José  | Silva  | 17  | Masculino  |
+| **222.333.444-55** | Maria  | Lins  | 21  | Feminino  |
+| **333.444.555-66** | Roberto  | Losada  | 53  | Masculino  |
+
+No caso acima, temos uma chave primária simples, formada pelo CPF, pois este identifica unicamente cada Pessoa de nossa tabela, é **IMPORTANTE** ressaltar que chaves primárias não pode conter réplicas ou duplicatas no banco de dados, ou seja, estas são únicas, pois devem assim garantir a unicidade e integridade dos dados.
+
+**Chave primária composta:** A chave primária composta é composta por duas ou mais colunas em uma tabela. Por exemplo, em uma tabela de pedidos, a chave primária pode ser composta pela combinação do número de pedido e do número de linha.
+
+**Tabela Pedido**
+| Numero_Pedido | Linha_Pedido | Numero_Item | Descricao_Item | Quantidade |
+| ------------- | ------------ | ----------- | -------------- | ---------- |
+| **00001** | **01** | 12345 | Parafuso Aço 16x3 | 3 |
+| **00001** | **02** | 23456 | Rosca Aço 5x3 | 3 |
+| **00001** | **03** | 34567 | Prego Anodizado 15x2 | 100 |
+| **00002** | **01** | 12345 | Parafuso Aço 16x3 | 45 |
+| **00002** | **02** | 34567 | Prego Anodizado 15x2 | 1000 |
+
+Em chaves compostas a unicidade é encontrada, ao combinarmos os dois campos, o que garante que sempre tenhamos um número único identificando o registro.
+
+**Chave primária artificial:** A chave primária artificial é uma criada pelo banco de dados em vez de usar uma chave natural. A chave primária artificial é útil quando não há uma coluna adequada na tabela para atuar como chave primária, ou quando a chave natural é muito grande ou complexa. Por exemplo, em uma tabela de clientes, o banco de dados pode criar uma chave primária artificial simplesmente atribuindo um número exclusivo a cada registro.
+
+**Tabela Clientes**
+| Cliente_PK | Numero_Cliente | Nome_Cliente | Agencia_Cliente | Conta_Cliente |
+| ---------- | -------------- | ------------ | --------------- | ------------- |
+| **001** | 9876 | Cliente 1 | Agência 1 | 12345 |
+| **002** | 9877 | Cliente 2 | Agência 1 | 12346 |
+| **003** | 9878 | Cliente 3 | Agência 2 | 12345 |
+| **004** | 9879 | Cliente 4 | Agência 2 | 12346 |
+| **005** | 9880 | Cliente 5 | Agência 3 | 12347 |
+
+A chave primária aqui é criada para garantir a unicidade dos registros, e esta não é um campo do cliente, e sim um campo criado, existem várias formas de se criar essa chave, podendo a mesma ser sequêncial, ou um UUID (Universally Unique Identifier).
+
+## Chave Estrangeira ##
+
+
 ## Estrutura da Linguagem SQL ##
 
 Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
