@@ -280,6 +280,32 @@ Podemos estruturar a linguagem SQL em 5 subconjuntos de Linguagem, são estes:
 - **DCL** (Data Control Language): define os comandos de controle de acesso ao banco de dados (GRANT e REVOKE)
 - **DTL** (Data Transaction Language): define os comandos de gestão das transações de bancos de dados (BEGIN, COMMIT e ROLLBACK)
 
+## Tipo de Dados ##
+
+Cada dado que armazenamos possui um tipo, pode ser um número inteiro, um número decimal, uma palavra, uma data ou até mesmo um arquivo, entre outros.
+
+**Tipos Inteiros:**
+- **INT:** armazena números inteiros na faixa de -2.147.483.648 a 2.147.483.647.
+- **BIGINT:** armazena números inteiros maiores na faixa de -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807.
+- **SMALLINT:** armazena números inteiros menores na faixa de -32.768 a 32.767.
+- **TINYINT:** armazena números inteiros muito pequenos na faixa de -128 a 127.
+
+**Tipos Decimais ou Numéricos:**
+- **DECIMAL ou NUMERIC:** armazena números com ponto fixo com uma precisão e escala especificadas.
+- **FLOAT:** armazena números de ponto flutuante com uma precisão especificada.
+- **REAL:** armazena números de ponto flutuante com uma precisão de 7 dígitos.
+
+**Tipos de Strings de Caracteres:**
+- **CHAR:** armazena strings de caracteres com comprimento fixo.
+- **VARCHAR:** armazena strings de caracteres com comprimento variável com um comprimento máximo.
+- **TEXT:** armazena strings de caracteres grandes com um comprimento máximo de 2^31-1 caracteres.
+
+**Tipos de Datas e Horas:**
+- **DATE:** armazena datas no formato AAAA-MM-DD.
+- **TIME:** armazena horários no formato HH:MM:SS.
+- **DATETIME:** armazena datas e horários no formato AAAA-MM-DD HH:MM:SS.
+- **TIMESTAMP:** armazena datas e horários no formato AAAA-MM-DD HH:MM:SS com microssegundos.
+
 ## Exemplos de Códigos: ##
 
 ### *SELECT* ###
@@ -391,13 +417,63 @@ SELECT nome, COUNT(matricula) FROM tabela GROUP BY nome HAVING COUNT(matricula) 
 ```
 ### *INSERT* ###
 ---
+**1.** Inserindo um único registro em uma tabela
+```sql
+INSERT INTO tabela (matricula, nome, sobrenome, endereco, numero, complemento, cep) 
+VALUES (1234, 'José', 'Ferez', 'Rua das Acácias', 22, '114A', '12345-001');
+```
+**2.** Inserindo múltiplos registros em uma tabela
+```sql
+INSERT INTO tabela (matricula, nome, sobrenome, endereco, numero, complemento, cep);
+VALUES  (1234, 'José', 'Ferez', 'Rua das Acácias', 22, '114A', '12345-001'),
+        (1235, 'Joana', 'Ferez', 'Rua das Acácias', 22, '114A', '12345-001'),
+        (1236, 'Xavier', 'Wadinton', 'Rua Terra Azul', 135, '15', '23456-007');
+```
 ### *UPDATE* ###
 ---
+**1.** Atualizando um único registro em uma tabela
+```sql
+UPDATE tabela SET salario = 60000 WHERE matricula = 1234;
+```
+**2.** Atualizando vários registros em uma tabela
+```sql
+UPDATE tabela SET salario = 100000 WHERE departamento = 'TI';
+```
+**3.** Atualizando um registro com uma valor vazio (NULL)
+```sql
+UPDATE tabela SET salario = NULL WHERE matricula = 1234;
+```
+**BÔNUS** O famoso update da Sexta-Feira (o dia de maldade)
+```sql
+UPDATE tabela SET salario = NULL;
+```
 ### *DELETE* ###
 ---
+**1.** Apagando um registro de uma tabela
+```sql
+DELETE FROM tabela WHERE matricula = 1234;
+```
+**2.** Apagando vários registros de uma tabela com base em uma condição
+```sql
+DELETE FROM tabela WHERE matricula >= 1234 AND matricula <= 2345;
+```
+**3.** Apagando todos os registros de uma tabela (Irmão do Update Sexta Feira)
+```sql
+DELETE FROM tabela;
+```
 ### *CREATE* ###
 ---
+**1.** Criando uma tabela
+```sql
+CREATE TABLE funcionarios (
+
+)
+```
+
 ### *ALTER* ###
 ---
 ### *DROP* ###
+---
+
+### *ALIAS* ###
 ---
