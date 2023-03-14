@@ -728,6 +728,8 @@ FROM funcionarios;
 ### *DROP* ###
 
 ---
+O comando DROP, permite que excluamos estruturas do banco de dados, desde um índice, uma tabela até um banco de dados inteiro.
+
 **1.** Exclui uma tabela existente
 
 ```sql
@@ -757,11 +759,64 @@ DROP VIEW funcionario_salario;
 ### *ALIAS* ###
 
 ---
+Um ALIAS é um nome alternativo que é atribuído a uma tabela, coluna, ou expressão para simplificar o seu uso em uma consulta.
 
-**1.** 
+**1.**  Alias de uma tabela
+
 ```sql
+SELECT func.id, func.nome, func.sobrenome
+FROM funcionarios AS func;
+```
 
+**2.**  Alias de uma coluna
 
+```sql
+SELECT func.id AS "ID Funcionario", func.nome AS "Nome Funcionario", func.sobrenome AS "Sobrenome Funcionario"
+FROM funcionarios AS func;
 ```
 
 ### *JOINS* ###
+
+---
+JOIN é uma operação que combina dados de duas ou mais tabelas em uma única consulta, com base em uma relação comum entre elas. O JOIN é usado para recuperar informações que estão distribuídas em várias tabelas relacionadas entre si, permitindo que essas tabelas sejam combinadas em uma única consulta.
+
+Os tipos de JOIN, são os seguintes:
+
+**1.** INNER JOIN: retorna apenas os registros que têm correspondência em ambas as tabelas envolvidas na operação JOIN. Essa é a operação JOIN padrão em SQL.
+
+```sql
+SELECT pedidos.id_pedidos, clientes.nome
+FROM pedidos
+INNER JOIN clientes
+ON pedidos.id_cliente = clientes.id_cliente;
+```
+
+**2.** LEFT JOIN: retorna todos os registros da tabela da esquerda e os registros correspondentes da tabela da direita. Se não houver correspondência, o resultado da tabela da direita será NULL.
+
+```sql
+SELECT clientes.nome, pedidos.id_pedidos
+FROM clientes
+LEFT JOIN pedidos
+ON clientes.id_clientes = pedidos.id_clientes;
+```
+
+**3.** RIGHT JOIN: retorna todos os registros da tabela da direita e os registros correspondentes da tabela da esquerda. Se não houver correspondência, o resultado da tabela da esquerda será NULL.
+
+```sql
+SELECT clientes.nome, pedidos.id_pedidos
+FROM clientes
+RIGHT JOIN pedidos
+ON clientes.id_clientes = pedidos.id_clientes;
+```
+
+**4.** FULL OUTER JOIN: combina todos os registros de ambas as tabelas envolvidas na operação JOIN, incluindo aqueles que não têm correspondência em uma ou em ambas as tabelas.
+
+```sql
+SELECT clientes.nome, pedidos.id_pedidos
+FROM clientes
+FULL OUTER JOIN pedidos
+ON clientes.id_clientes = pedidos.id_clientes;
+```
+
+![Exemplo de Grafo](https://eufacoprogramas.com/wp-content/uploads/2011/05/SQL-Joins.jpg)
+*Crédito: Eu faço Programas - eufacoprogramas.com*
