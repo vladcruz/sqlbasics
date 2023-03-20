@@ -134,9 +134,9 @@ Diferente de bancos de dados realacionais, bancos de dados NoSQL, podem ser de 4
 
 | ID Produto | Tipo | Atributo 1 | Atributo 2 | Atributo 3 |
 | ---------- | ---- | ---------- | ---------- | ---------- |
-| 1 | ID Livro | Odisséia | Homnero | 1871 |
+| 1 | ID Livro | Odisséia | Homero | 1871 |
 | 2 | ID Album | 6 Partitas | Bach |
-| 2 | ID Album: ID Faixa | Partita No. 1 |
+| 2 | ID Album: ID Faixa | Partita: No. 1 |
 | 3 | ID Filme | A Criança | Drama, Comédia | Charles Chaplin |
 
 Sendo o **ID Produto** a **Chave de Partição**, o **Tipo** a **Chave de indexação**, e os **Atrbituos 1, 2 e 3** os **Atributos** de cada entrada.
