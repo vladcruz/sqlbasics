@@ -5,6 +5,20 @@
 Como toda grande jornada, temos aqui o início de uma, falaremos da linguagem SQL (Structured Query Language), utilizada nos principais Bancos de Dados Relacionais que temos hoje no mundo.
 Essa é a linguagem utilizada para criar, alterar e deletar tabelas em Bancos de Dados, também é com ela que faremos toda a manipulação dos dados dentro do nosso banco, faremos consultas, inserções, alterações, deleções e muito mais!
 
+Para esse curso, vamos utilizar o Microsoft SQL Server Express 2019, podemos baixar o mesmo em:
+
+[Microsoft SQL Server 2019 Express](https://www.microsoft.com/pt-br/download/details.aspx?id=101064)
+
+Além disso, precisamos instalar o Sistema de Gestão do nosso banco de dados, no caso do SQL Server, vamos instalar o SQL Server Management Studio (SSMS), podemos baixar o mesmo em:
+
+[Microsoft SQL Server Management Studio](https://aka.ms/ssmsfullsetup)
+
+Quer seguir um tutorial para instalar? Sem problema! Segue um tutorial (em inglês, depois eu faço algo em português!):
+
+[Microsoft SQL Server 2019 e Management Studio - Guias de Instalação](https://learnsql.com/blog/how-to-install-sql-server-2019-windows/)
+
+Qualquer coisa é só me chamar e vamos tirar todas as dúvidas!
+
 ## Mas o que são Bancos de Dados? ##
 
 Um Banco de Dados é uma coleção **organizada** de dados, estruturados ou não, normalmente armazenados em um sistema computacional.
